@@ -1,0 +1,29 @@
+{
+  "name": "iw2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "generate": "npx workbox generateSW",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syu93/iw-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syu93/iw-2/issues"
+  },
+  "homepage": "https://github.com/syu93/iw-2#readme",
+  "devDependencies": {
+    "polymer-cli": "^1.9.9",
+    "workbox-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "@polymer/lit-element": "^0.7.1",
+    "idb": "^4.0.3",
+    "lit-element": "^2.1.0"
+  }
+}
