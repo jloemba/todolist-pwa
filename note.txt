@@ -1,0 +1,4 @@
+npm i 
+yarn install 
+npm i -D polymer-cli
+npx polymer serve

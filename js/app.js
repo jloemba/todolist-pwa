@@ -1,5 +1,13 @@
-import AppCard from '/js/components/card/card.js';
+
+
+//import AppCard from '/js/components/card/card.js';
+import Task from '/js/components/task/task.js';
+import Form from '/js/components/form/form.js';
+
+//
 import { openDB } from 'idb';
+
+//
 import checkConnectivity from '/js/connection.js';
 
 (async function(document) {
@@ -25,23 +33,28 @@ import checkConnectivity from '/js/connection.js';
       }
     });
 
+    //Vérifier si on est en ligne pour mettre à jour la todo list
     if (navigator.onLine) {
       await database.put('articles', json, 'articles');
     }
 
+
+    // Récupérer les données mis en caches
     const articles = await database.get('articles', 'articles');
     
-    const cards = json.map(item => {
-      const cardElement = new AppCard();
+    // Instancier le web components
+    const tasks = json.map(item => {
+      const taskElement = new Task();
   
-      cardElement.initCard(item.image,
-        item.placeholder,
-        item.content.title,
-        item.content.description);
+      taskElement.initTask( //Passer par l'attribut 'content' pour avoir les données
+        item.content.id,
+        item.content.task,
+      );
+      
+      //Ajouter la tache crée à la liste
+      listPage.appendChild(taskElement);
   
-      listPage.appendChild(cardElement);
-  
-      return cardElement;
+      return taskElement;
     });
 
     document.addEventListener('add-favorit', async e => {
@@ -57,15 +70,16 @@ import checkConnectivity from '/js/connection.js';
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const card = entry.target;
-          card.swapImage();
+          //card.swapImage();
         }
       });
     };
   
     const io = new IntersectionObserver(callback);
-  
-    cards.forEach(card => {
-      io.observe(card);
+    
+    // On indique 
+    tasks.forEach(task => {
+      io.observe(task);
     });
   } catch (error) {
     console.error(error, ':(');

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="manifest" href="manifest.json">
-  <title>My First PWA</title>
+  <title>PWA</title>
   <style>
     * {
       box-sizing: border-box;
@@ -117,15 +117,24 @@
       </nav>
     </header>
     <main>
-      <div class="skeleton" active>
+     <!-- <div class="skeleton" active>
         <div class="hero"></div>
         <div class="title"></div>
         <div class="text"></div>
       </div>
       <section page="list"><div class="ctn"><h1>Loadded !!!</h1></div></section>
-      <section page="view"></section>
+      <section page="view"></section>-->
+      <div class="skeleton" active> <!-- Layout de chargement -->
+        <div class="hero"></div>
+        <div class="title"></div>
+        <div class="text"></div>
+      </div>
+
+      <!-- Formulaire de saisie -->
+      <section page="list"><div class="ctn"></div></section>
     </main>
   </section>
+  
   <script type="module" src="/js/app.js" async></script>
   <script nomodule>
     const script = document.createElement('script');
